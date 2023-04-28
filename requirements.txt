@@ -1,0 +1,10 @@
+pandas
+seaborn
+numpy
+scikit-learn
+xgboost
+dill
+boto3
+imblearn
+catboost
+-e .
