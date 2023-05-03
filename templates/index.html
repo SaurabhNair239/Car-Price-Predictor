@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>Car Price Prediction </title>
+<style>
+    body  {
+
+    background-color: #cccccc;
+    background-repeat: no-repeat;
+    
+    background-position: top right;
+    }
+    tr
+    {
+    background-color:white;
+    color:red;
+    }
+    .button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+</style>
+</head>
+<body>
+    <h1 style="text-align: center">Car Price Estimator</h1>
+    <div class="form">
+    <center>
+    <form action="/predict"method="POST">
+        <table border="0px">
+           <!-- <tr>
+            <td style="padding:30px 50px 0 30px;>
+
+                    <label for="Dep_Date_Time">Departure Date and Time:</label>
+                    <input type="datetime-local" id="Dep_Date_Time" name="Dep_Date_Time">
+
+            </td>
+
+            <td style="padding:30px 30px 0 15px;>
+
+                    <label for="Arr_Date_Time">Arrival Date and Time:</label>
+                    <input type="datetime-local" id="Arr_Date_Time" name="Arr_Date_Time">
+
+            </td>
+
+            </tr>-->
+            <tr>
+            <td style="padding:30px 30px 0 30px;>
+            <div class="custom-select" style="width:200px;">
+                    <label for="manufacturer">Manufacturer</label>
+                    <select name="manufacturer" id="manufacturer">
+                        <option value="LEXUS">LEXUS</option>
+                        <option value="CHEVROLET">CHEVROLET</option>
+                        <option value="HONDA">HONDA</option>
+                        <option value="FORD">FORD</option>
+                        <option value="HYUNDAI">HYUNDAI</option>
+                        <option value="TOYOTA">TOYOTA</option>
+                        <option value="MERCEDES">MERCEDES-BENZ</option>
+                        <option value="OPEL">OPEL</option>
+                        <option value="PORCHE">PORCHE</option>
+                        <option value="BMW">BMW</option>
+                        <option value="JEEP">JEEP</option>
+                        <option value="VOLKSWAGEN">VOLKSWAGEN</option>
+                        <option value="AUDI">AUDI</option>
+                        <option value="RENAULT">RENAULT</option>
+                        <option value="NISSAN">NISSAN</option>
+                        <option value="SUBARU">SUBARU</option>
+                        <option value="DAEWOO">DAEWOO</option>
+                        <option value="KIA">KIA</option>
+                        <option value="MITSUBISHI">MITSUBISHI</option>
+                        <option value="SSANGYONG">SSANGYONG</option>
+                        <option value="MAZDA">MAZDA</option>
+                        <option value="GMC">GMC</option>
+                        <option value="FIAT">FIAT</option>
+                        <option value="INFINITI">INFINITI</option>
+                        <option value="SUZUKI">SUZUKI</option>
+                        <option value="ACURA">ACURA</option>
+                        <option value="LINCOLN">LINCOLN</option>
+                        <option value="VAZ">VAZ</option>
+                        <option value="GAZ">GAZ</option>
+                        <option value="LAND ROVER">LAND ROVER</option>
+                        <option value="MINI">MINI</option>
+                        <option value="DODGE">DODGE</option>
+                        <option value="CHRYSLER">CHRYSLER</option>
+                        <option value="JAGUAR">JAGUAR</option>
+                        <option value="SKODA">SKODA</option>
+                        <option value="DAIHATSU">DAIHATSU</option>
+                        <option value="BUICK">BUICK</option>
+                        <option value="CADILLAC">CADILLAC</option>
+                        <option value="PEUGEOT">PEUGEOT</option>
+                        <option value="VOLVO">VOLVO</option>
+                        <option value="UAZ">UAZ</option>
+                    </select>
+            </div>
+        </td>
+        <td style="padding: 30px 30px 0 30px;">
+            <label for="Prod.year">Production Year</label>
+            <input type="number" id="Prod.year" name="Prod.year" value="2010">
+        </td>
+            <td style="padding:30px 30px 0 30px;>
+                        <label for="Category">Category</label>
+                    <select name="Category" id="Category">
+                    <option value="Jeep">Jeep</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Microbus">Microbus</option>
+                    <option value="Goods wagon">Goods wagon</option>
+                    <option value="Universal">Universal</option>
+
+                    <option value="Coupe">Coupe</option>
+                    <option value="Minivan">Minivan</option>
+                    <option value="Cabriolet">Cabriolet</option>
+                    <option value="Limousine">Limousine</option>
+                    <option value="Pickup">Pickup</option>
+                    </select>
+            </td>
+            </tr>
+                        
+            <tr>
+            <td style="padding:30px 30px 0 30px;"">
+                        <label for="Leather interior">Leather Interior</label>
+                        <input type="radio" id="Leather_interior_yes" name="Leather interior" value="Yes">Yes</input>
+                        <input type="radio" id="Leather_interior_no" name="Leather interior" value="No">No</input>
+            </td>
+
+           <td style="padding:30px 30px 0 30px;"">
+                  
+                    <label for="Fuel_type">Fuel Type</label>
+                    <select name="Fuel_type" id="Fuel_type">
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="CNG">CNG</option>
+                        <option value="Plug-in Hybrid">Plug-in Hybrid</option>
+                        <option value="LPG">LPG</option>
+                        <option value="Hydrogen">Hydrogen</option>
+                    </select>
+            </td>
+            
+
+                <td style="padding:30px 30px 0 30px;"">
+                    
+                    <label for="Engine volume">Engine Volume</label>
+                    <input type="number" id="Engine_vol" name="Engine_vol" value="3.5">
+                </td>        
+            </tr>
+                        <br><br><br>
+
+            <tr>
+                <td style="padding:30px 30px 0 30px;"">
+                    <label for="Mileage">Mileage</label>
+                    <input type="number" id="Mileage" name="Mileage" value="15000">
+                </td>
+
+                <td style="padding:30px 30px 0 30px;"">
+                    <label for="Cylinders">Cylinders</label>
+                    <input type="number" id="Cylinders" name="Cylinders" value="1.0">
+                </td>
+
+                <td style="padding:30px 30px 0 30px;"">
+                  
+                    <label for="Gear_box_type">Gear Box Type</label>
+                    <select name="Gear_box_type" id="Gear_box_type">
+                        <option value="Automatic">Automatic</option>
+                        <option value="Tiptronic">Tiptronic</option>
+                        <option value="Variator">Variator</option>
+                        <option value="Manual">Manual</option>
+                    </select>
+            </td>
+
+
+            </tr>
+            <tr>
+            <td style="padding: 30px 30px 0 30px;">
+                <label for="Turbos">Turbos</label>
+                <input type="radio" id="Turbos_yes" name="Turbos" value="Yes">Yes</input>
+                <input type="radio" id="Turbos_no" name="Turbos" value="No">No</input>
+            </td>
+            <td colspan="2"  style="padding:30px 30px 0 30px;">
+            <center>
+                        <input type="submit" value="calculate" class="button1">
+            </center>
+            </td>
+            </tr>
+        </table>
+    </form>
+    </center>
+    </div>
+</body>
+</html>

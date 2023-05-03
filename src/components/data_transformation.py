@@ -83,6 +83,16 @@ class DataTranformation:
             input_feature_train = train_data.drop([target_column,"ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
             input_feature_test = test_data.drop([target_column,"ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
 
+            input_train_delete_rows = input_feature_train[input_feature_train["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
+            input_test_delete_rows = input_feature_test[input_feature_test["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
+
+            input_feature_train.drop(input_train_delete_rows,inplace=True)
+            input_feature_train = input_feature_train.reset_index(drop=True)
+
+            input_feature_test.drop(input_test_delete_rows,inplace=True)
+            input_feature_test = input_feature_test.reset_index(drop=True)
+            
+
             input_feature_train["Mileage"] = input_feature_train["Mileage"].apply(lambda x: x.replace("km",""))
             input_feature_train["Has_Turbo"] = np.where(input_feature_train["Mileage"].str.contains("Turbo"),"Yes","No")
             input_feature_train["Engine volume"] = input_feature_train["Engine volume"].apply(lambda x: x.replace("Turbo",""))
