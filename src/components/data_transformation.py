@@ -24,9 +24,9 @@ class DataTranformation:
 
     def get_data_tranformer(self):
         try:
-            numeric_cols = ["Prod. year","Engine volume","Mileage","Cylinders","Years_used"]
-            outlier_cols = ["Engine volume","Mileage"]
-            categorical_cols = ["Engine volume","Mileage","Manufacturer","Category","Leather interior","Fuel type","Gear box type","Has_Turbo","Years_used"]
+            numeric_cols = ["Prod_year","Engine_volume","Mileage","Cylinders","Years_used"]
+            outlier_cols = ["Engine_volume","Mileage"]
+            categorical_cols = ["Engine_volume","Mileage","Manufacturer","Category","Leather_interior","Fuel_type","Gear_box_type","Has_Turbo","Years_used"]
             num_pipeline = Pipeline(
                  steps=[
                 ("Standard scaler",StandardScaler())
@@ -82,6 +82,11 @@ class DataTranformation:
 
             input_feature_train = train_data.drop([target_column,"ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
             input_feature_test = test_data.drop([target_column,"ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
+
+            logging.info("Renaming Columns")
+            input_feature_train.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
+            input_feature_test.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
+
 
             input_train_delete_rows = input_feature_train[input_feature_train["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
             input_test_delete_rows = input_feature_test[input_feature_test["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()

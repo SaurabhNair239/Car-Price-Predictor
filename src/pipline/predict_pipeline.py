@@ -25,77 +25,38 @@ class PredictionPipeline:
 
 class CustomizeData:
 
-    def __init__(self,LIMIT_BAL:int, SEX:str, EDUCATION:str, MARRIAGE:str, AGE:int, PAY_0:int,
-       PAY_1:int, PAY_2:int, PAY_3:int, PAY_4:int, PAY_5:int, BILL_AMT1:int, BILL_AMT2:int,
-       BILL_AMT3:int, BILL_AMT4:int, BILL_AMT5:int, BILL_AMT6:int, PAY_AMT1:int,
-       PAY_AMT2:int, PAY_AMT3:int, PAY_AMT4:int, PAY_AMT5:int, PAY_AMT6:int):
+    def __init__(self,manufaturer:str, prod_year:int, category:str, leather_int:str, fuel_type :str, engine_vol :int,
+       mileage :int, cylinder :float, gear_box :str, turbos :str, years_used :int):
         
         
-        self.limit = LIMIT_BAL
-        self.gender = SEX
-        self.education = EDUCATION
-        self.marriage = MARRIAGE
-        self.age = AGE
-        self.pay0 = PAY_0
-        self.pay1 = PAY_1
-        self.pay2 = PAY_2
-        self.pay3 = PAY_3
-        self.pay4 = PAY_4
-        self.pay5 = PAY_5
-
-        self.bill1 = BILL_AMT1
-        self.bill2 = BILL_AMT2
-        self.bill3 = BILL_AMT3
-        self.bill4 = BILL_AMT4
-        self.bill5 = BILL_AMT5
-        self.bill6 = BILL_AMT6
-
-        self.payamt1 = PAY_AMT1
-        self.payamt2 = PAY_AMT2
-        self.payamt3 = PAY_AMT3
-        self.payamt4 = PAY_AMT4
-        self.payamt5 = PAY_AMT5
-        self.payamt6 = PAY_AMT6
-
-
-
-        if self.education == "School Graduate":
-            self.education = "School_g"
-        elif self.education == "High School":
-            self.education = "High_s"
-        elif self.education == "University":
-            self.education = "University"
-        else:
-            self.education = "Other"
+        self.Manufacturer = manufaturer
+        self.Prod_year = prod_year
+        self.Category = category
+        self.Leather_int = leather_int
+        self.Fuel_type = fuel_type
+        self.Engine_vol= engine_vol
+        self.Mileage = mileage
+        self.Cylinder = cylinder
+        self.Gear_box_type = gear_box
+        self.Has_Turbo = turbos
+        self.Years_used = years_used
 
     def get_data_as_frame(self):
 
         try:
             data_dict = {
-                "LIMIT_BAL":self.limit,
-                "SEX":self.gender,
-                "EDUCATION":self.education,
-                "MARRIAGE":self.marriage,
-                "AGE":self.age,
-                "PAY_0":self.pay0,
-                "PAY_2":self.pay1,
-                "PAY_3":self.pay2,
-                "PAY_4":self.pay3,
-                "PAY_5":self.pay4,
-                "PAY_6":self.pay5,
-                "BILL_AMT1":self.bill1,
-                "BILL_AMT2":self.bill2,
-                "BILL_AMT3":self.bill3,
-                "BILL_AMT4":self.bill4,
-                "BILL_AMT5":self.bill5,
-                "BILL_AMT6":self.bill6,
-                "PAY_AMT1":self.payamt1,
-                "PAY_AMT2":self.payamt2,
-                "PAY_AMT3":self.payamt3,
-                "PAY_AMT4":self.payamt4,
-                "PAY_AMT5":self.payamt5,
-                "PAY_AMT6":self.payamt6                
-            }
+                "Manufacturer":self.Manufacturer,
+                "Prod_year":self.Prod_year,
+                "Category":self.Category,
+                "Leather_int":self.Leather_int,
+                "Fuel_type":self.Fuel_type,
+                "Engine_vol":self.Engine_vol,
+                "Mileage":self.Mileage,
+                "Cylinder":self.Cylinder,
+                "Gear_box_type":self.Gear_box_type,
+                "Has_Turbo":self.Has_Turbo,
+                "Years_used":self.Years_used
+                }
 
             data = pd.DataFrame(data=data_dict,index=[0])
             return data
