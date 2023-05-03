@@ -41,8 +41,8 @@ class model_trainer:
                       "Ridge": Ridge(),
                       "Lasso": Lasso(), 
                       "KNNR": KNeighborsRegressor(),
-                      "AdaBoost Regressor": AdaBoostRegressor(),
-                      "CatBoost Regressor" : CatBoostRegressor()
+                    #   "AdaBoost Regressor": AdaBoostRegressor(),
+                    #   "CatBoost Regressor" : CatBoostRegressor()
             }     
             
 
@@ -56,13 +56,13 @@ class model_trainer:
                 },
 
                 "Random Forest":{
-                    'criterion':["squared_error", "absolute_error", "friedman_mse", "poisson"],
-                    'max_depth': [10, 20],
-                    'n_estimators': [200, 400]
+                    # 'criterion':["squared_error", "absolute_error", "friedman_mse", "poisson"],
+                    'max_depth': [10, 20,30],
+                    'n_estimators': [200, 400,600]
                 },
                 
                 "Decision Tree":{
-                    'criterion':["squared_error", "absolute_error", "friedman_mse", "poisson"],
+                    # 'criterion':["squared_error", "absolute_error", "friedman_mse", "poisson"],
                     "max_depth" : [1,3,9],
                     'min_samples_split': [0.2,0.3,0.5],
               },
@@ -99,9 +99,11 @@ class model_trainer:
 
             report_r2 = [i[0] for i in report.values()]
             model_data = [i[1] for i in report.values()]
-            best_model = model_data[report_r2.index(min(report_r2))]
+
+            
+            best_model = model_data[report_r2.index(list(filter(lambda x: x>=-0.5,report_r2))[0])]
             report_keys = [i for i in report.keys()]
-            model_name = report_keys[report_r2.index(min(report_r2))]
+            model_name = report_keys[report_r2.index(list(filter(lambda x: x>=-0.5,report_r2))[0])]
             print("Best Model: ",model_name)
             logging.info("Found best model")
 

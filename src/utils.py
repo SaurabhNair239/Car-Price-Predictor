@@ -1,6 +1,6 @@
 import os
 import sys
-from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import GridSearchCV
 import dill
 from sklearn.metrics import r2_score
 from src.exception import CustomException 
@@ -21,9 +21,9 @@ def evaluation(X_train,y_train,X_test,y_test,model,parameters):
             model_obj = model[i]
             print(i)
             parameter = parameters[i]
-            random_grid_model  = RandomizedSearchCV(model_obj,parameter,cv=5,n_jobs=-1,refit=False,scoring='r2')
-            random_grid_model.fit(X_train,y_train)
-            model_obj.set_params(**random_grid_model.best_params_)
+            grid_model  = GridSearchCV(model_obj,parameter,cv=5,n_jobs=-1,refit=False,scoring='r2')
+            grid_model.fit(X_train,y_train)
+            model_obj.set_params(**grid_model.best_params_)
             model_obj.fit(X_train,y_train)
             y_train_pred = model_obj.predict(X_train)
             y_test_pred = model_obj.predict(X_test)
