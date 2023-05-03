@@ -80,13 +80,8 @@ class DataTranformation:
 
             target_column = "Price"
 
-            input_feature_train = train_data.drop([target_column,"ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
-            input_feature_test = test_data.drop([target_column,"ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
-
-            logging.info("Renaming Columns")
-            input_feature_train.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
-            input_feature_test.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
-
+            input_feature_train = train_data.drop(["ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
+            input_feature_test = test_data.drop(["ID","Levy",'Drive wheels', 'Doors', 'Wheel', 'Color',"Model",'Airbags'],axis=1)
 
             input_train_delete_rows = input_feature_train[input_feature_train["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
             input_test_delete_rows = input_feature_test[input_feature_test["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
@@ -96,7 +91,12 @@ class DataTranformation:
 
             input_feature_test.drop(input_test_delete_rows,inplace=True)
             input_feature_test = input_feature_test.reset_index(drop=True)
-            
+        
+            train_target_feature = input_feature_train[target_column]
+            test_target_feature = input_feature_test[target_column]
+
+            input_feature_train = input_feature_train.drop(target_column,axis=1)
+            input_feature_test = input_feature_test.drop(target_column,axis=1)
 
             input_feature_train["Mileage"] = input_feature_train["Mileage"].apply(lambda x: x.replace("km",""))
             input_feature_train["Has_Turbo"] = np.where(input_feature_train["Mileage"].str.contains("Turbo"),"Yes","No")
@@ -113,11 +113,15 @@ class DataTranformation:
             input_feature_train["Years_used"] = datetime.date.today().year - input_feature_train["Prod. year"]
             input_feature_test["Years_used"] = datetime.date.today().year - input_feature_test["Prod. year"]
 
+
+            logging.info("Renaming Columns")
+            
+            input_feature_train.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
+            input_feature_test.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
+            print(input_feature_train.head(10))
+
             logging.info("Data Cleaned")
 
-            train_target_feature = train_data[target_column]
-            test_target_feature = test_data[target_column]
-            
             logging.info("Preprocessing train data")
             train_input_data_preprocessed = preprocess_obj.fit_transform(input_feature_train)
 
