@@ -32,24 +32,8 @@
     <h1 style="text-align: center">Car Price Estimator</h1>
     <div class="form">
     <center>
-    <form action="/predict"method="POST">
+    <form action="{{ url_for('prediction')}}" method="POST">
         <table border="0px">
-           <!-- <tr>
-            <td style="padding:30px 50px 0 30px;>
-
-                    <label for="Dep_Date_Time">Departure Date and Time:</label>
-                    <input type="datetime-local" id="Dep_Date_Time" name="Dep_Date_Time">
-
-            </td>
-
-            <td style="padding:30px 30px 0 15px;>
-
-                    <label for="Arr_Date_Time">Arrival Date and Time:</label>
-                    <input type="datetime-local" id="Arr_Date_Time" name="Arr_Date_Time">
-
-            </td>
-
-            </tr>-->
             <tr>
             <td style="padding:30px 30px 0 30px;>
             <div class="custom-select" style="width:200px;">
@@ -184,7 +168,7 @@
             </td>
             <td colspan="2"  style="padding:30px 30px 0 30px;">
             <center>
-                        <input type="submit" value="calculate" class="button1">
+                        <input type="submit" value="submit" class="button1">
             </center>
             </td>
             </tr>
@@ -192,5 +176,12 @@
     </form>
     </center>
     </div>
+
+
+    <center>
+            <h2>
+            Predicted Gemstone Price is : {{ results }}
+            </h2>
+    </center>
 </body>
 </html>

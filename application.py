@@ -8,7 +8,8 @@ from src.pipline.predict_pipeline import CustomizeData,PredictionPipeline
 
 
 
-app = Flask(__name__)
+application = Flask(__name__)
+app = application
 @app.route("/",method=["GET"])
 @cross_origin()
 def home():
@@ -42,4 +43,4 @@ def prediction():
          raise CustomException(e,sys) 
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0')
