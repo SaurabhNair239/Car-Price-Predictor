@@ -38,7 +38,7 @@
             <td style="padding:30px 30px 0 30px;>
             <div class="custom-select" style="width:200px;">
                     <label for="manufacturer">Manufacturer</label>
-                    <select name="manufacturer" id="manufacturer">
+                    <select name="manufacturer" id="manufacturer" required>
                         <option value="LEXUS">LEXUS</option>
                         <option value="CHEVROLET">CHEVROLET</option>
                         <option value="HONDA">HONDA</option>
@@ -85,11 +85,11 @@
         </td>
         <td style="padding: 30px 30px 0 30px;">
             <label for="Prod.year">Production Year</label>
-            <input type="number" id="Prod_year" name="Prod_year" value="2010">
+            <input type="number" id="Prod_year" name="Prod_year" value="2010" required>
         </td>
             <td style="padding:30px 30px 0 30px;>
                         <label for="Category">Category</label>
-                    <select name="Category" id="Category">
+                    <select name="Category" id="Category" required>
                     <option value="Jeep">Jeep</option>
                     <option value="Hatchback">Hatchback</option>
                     <option value="Sedan">Sedan</option>
@@ -109,14 +109,14 @@
             <tr>
             <td style="padding:30px 30px 0 30px;"">
                         <label for="Leather interior">Leather Interior</label>
-                        <input type="radio" id="Leather_interior_yes" name="Leather_interior" value="Yes">Yes</input>
+                        <input type="radio" id="Leather_interior_yes" name="Leather_interior" value="Yes" required>Yes</input>
                         <input type="radio" id="Leather_interior_no" name="Leather_interior" value="No">No</input>
             </td>
 
            <td style="padding:30px 30px 0 30px;"">
                   
                     <label for="Fuel_type">Fuel Type</label>
-                    <select name="Fuel_type" id="Fuel_type">
+                    <select name="Fuel_type" id="Fuel_type" required>
                         <option value="Hybrid">Hybrid</option>
                         <option value="Petrol">Petrol</option>
                         <option value="Diesel">Diesel</option>
@@ -131,7 +131,7 @@
                 <td style="padding:30px 30px 0 30px;"">
                     
                     <label for="Engine volume">Engine Volume</label>
-                    <input type="number" id="Engine_vol" name="Engine_vol" value="3.5">
+                    <input type="number" id="Engine_vol" name="Engine_vol" value="3.5" required>
                 </td>        
             </tr>
                         <br><br><br>
@@ -139,18 +139,18 @@
             <tr>
                 <td style="padding:30px 30px 0 30px;"">
                     <label for="Mileage">Mileage</label>
-                    <input type="number" id="Mileage" name="Mileage" value="15000">
+                    <input type="number" id="Mileage" name="Mileage" value="15000" step="500" required>
                 </td>
 
                 <td style="padding:30px 30px 0 30px;"">
                     <label for="Cylinders">Cylinders</label>
-                    <input type="number" id="Cylinders" name="Cylinders" value="1.0">
+                    <input type="number" id="Cylinders" name="Cylinders" value="1.0" required>
                 </td>
 
                 <td style="padding:30px 30px 0 30px;"">
                   
                     <label for="Gear_box_type">Gear Box Type</label>
-                    <select name="Gear_box_type" id="Gear_box_type">
+                    <select name="Gear_box_type" id="Gear_box_type" required>
                         <option value="Automatic">Automatic</option>
                         <option value="Tiptronic">Tiptronic</option>
                         <option value="Variator">Variator</option>
@@ -163,7 +163,7 @@
             <tr>
             <td style="padding: 30px 30px 0 30px;">
                 <label for="Turbos">Turbos</label>
-                <input type="radio" id="Turbos_yes" name="Turbos" value="Yes">Yes</input>
+                <input type="radio" id="Turbos_yes" name="Turbos" value="Yes" required>Yes</input>
                 <input type="radio" id="Turbos_no" name="Turbos" value="No">No</input>
             </td>
             <td colspan="2"  style="padding:30px 30px 0 30px;">

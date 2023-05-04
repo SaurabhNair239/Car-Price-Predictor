@@ -93,7 +93,7 @@ class model_trainer:
                     "alpha": list(np.arange(0.1, 1.0, 0.3))
                 }
             }
-
+            print(X_train.shape)
             report = evaluation(X_train,y_train,X_test,y_test,model=models,parameters=hyper_parameter)
 
 

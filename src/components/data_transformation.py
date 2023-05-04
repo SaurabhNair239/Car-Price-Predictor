@@ -26,7 +26,7 @@ class DataTranformation:
         try:
             numeric_cols = ["Prod_year","Engine_volume","Mileage","Cylinders","Years_used"]
             outlier_cols = ["Engine_volume","Mileage"]
-            categorical_cols = ["Engine_volume","Mileage","Manufacturer","Category","Leather_interior","Fuel_type","Gear_box_type","Has_Turbo","Years_used"]
+            categorical_cols = ["Manufacturer","Category","Leather_interior","Fuel_type","Gear_box_type","Has_Turbo"]
             num_pipeline = Pipeline(
                  steps=[
                 ("Standard scaler",StandardScaler())
@@ -86,12 +86,13 @@ class DataTranformation:
             input_train_delete_rows = input_feature_train[input_feature_train["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
             input_test_delete_rows = input_feature_test[input_feature_test["Manufacturer"].isin(input_feature_train["Manufacturer"].value_counts().tail(24).index.to_list())].index.to_list()
 
+            
             input_feature_train.drop(input_train_delete_rows,inplace=True)
             input_feature_train = input_feature_train.reset_index(drop=True)
 
             input_feature_test.drop(input_test_delete_rows,inplace=True)
             input_feature_test = input_feature_test.reset_index(drop=True)
-        
+
             train_target_feature = input_feature_train[target_column]
             test_target_feature = input_feature_test[target_column]
 
@@ -118,13 +119,12 @@ class DataTranformation:
             
             input_feature_train.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
             input_feature_test.columns = ['Manufacturer','Prod_year','Category','Leather_interior','Fuel_type','Engine_volume','Mileage','Cylinders','Gear_box_type','Has_Turbo','Years_used']
-            print(input_feature_train.head(10))
-
+    
             logging.info("Data Cleaned")
 
             logging.info("Preprocessing train data")
             train_input_data_preprocessed = preprocess_obj.fit_transform(input_feature_train)
-
+            
             logging.info("Preprocessing test data")
             test_input_data_preprocessed = preprocess_obj.transform(input_feature_test)
 

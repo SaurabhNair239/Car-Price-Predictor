@@ -17,6 +17,7 @@ class PredictionPipeline:
             preprocessor_model = load_object(file_path = preprocessor_path)
 
             data_transformed = preprocessor_model.transform(feature)
+            print(data_transformed.shape)
             predicted_val = model.predict(data_transformed)
 
             return predicted_val
@@ -48,11 +49,11 @@ class CustomizeData:
                 "Manufacturer":self.Manufacturer,
                 "Prod_year":self.Prod_year,
                 "Category":self.Category,
-                "Leather_int":self.Leather_int,
+                "Leather_interior":self.Leather_int,
                 "Fuel_type":self.Fuel_type,
-                "Engine_vol":self.Engine_vol,
+                "Engine_volume":self.Engine_vol,
                 "Mileage":self.Mileage,
-                "Cylinder":self.Cylinder,
+                "Cylinders":self.Cylinder,
                 "Gear_box_type":self.Gear_box_type,
                 "Has_Turbo":self.Has_Turbo,
                 "Years_used":self.Years_used
