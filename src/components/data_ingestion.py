@@ -24,9 +24,13 @@ class DataIngestion:
     def start_ingestion_data(self):
         logging.info("Started Data ingestion method")
         try:
-            s3_resource = boto3.client('s3', aws_access_key_id="AKIASPLFXLBWTP6LSWCQ",
-                               aws_secret_access_key="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")
-            
+            # s3_resource = boto3.client('s3', aws_access_key_id="AKIASPLFXLBWTP6LSWCQ",
+            #                    aws_secret_access_key="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")
+            key_id = os.environ['key_id']
+            access_key = os.environ['access_key']
+            s3_resource = boto3.client('s3', aws_access_key_id=key_id,
+                               aws_secret_access_key=access_key)
+
             obj = s3_resource.get_object(Bucket='car-price-bucket', Key="car_price_prediction.csv")
 
             data = obj['Body'].read().decode('utf-8')

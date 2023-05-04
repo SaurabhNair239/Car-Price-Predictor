@@ -6,6 +6,5 @@ xgboost
 dill
 boto3
 imblearn
-catboost
 flask
 -e .
