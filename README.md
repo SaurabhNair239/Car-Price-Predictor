@@ -65,20 +65,27 @@ Total sales in last 10 years
 
 Contineous deployment can be done using the [main.yaml](https://github.com/SaurabhNair239/Car-Price-Predictor/blob/main/.github/workflows/main.yaml) file 
 
-Before doing one must create AWS Elastic Container registry and user with required privilages as mentioned below:
+### Below mentioned steps need to be followed for deployment
 
-> AmazonEC2FullAccess
+* Create AWS Elastic Container registry .
 
-> AmazonEC2ContainerRegistryFullAccess
+* Create user with below mentioned privilages:
 
-After completing this process store the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as a github action secret key
+    *  AmazonEC2FullAccess
 
-Once the registry is being setup one must create a AWS ECS cluster and task defination as per the requirements
+    * AmazonEC2ContainerRegistryFullAccess
 
-Final step will be to setup the EC2 instance and update the security requirments where you must specify the inbound and outbound TCP for IPv4 and IPv6.
+* Store AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in github action secret key.
 
-Detailed explation of the deployment will be published soon.
+* Create a AWS ECS cluster and task defination as per the requirements.
+
+* Setup the EC2 instance
+
+* Update the security requirments where you must specify the inbound and outbound TCP for IPv4 and IPv6.
+
+***Detailed explation of the deployment will be published soon.***
 
 ## Next step:
+
 * Improvement in the Frontend optimization.
 
