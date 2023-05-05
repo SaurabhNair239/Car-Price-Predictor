@@ -29,10 +29,10 @@ jobs:
           aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/h6l3p3u3
 
     - name: Build,tag Docker image
-      run: |
+    - run: |
           docker build -t car_price_prediction .
           docker tag car_price_prediction:latest public.ecr.aws/h6l3p3u3/car_price_prediction:latest
 
     - name: Push Docker image to ECR Public
-      run: |
+    - run: |
           docker push public.ecr.aws/h6l3p3u3/car_price_prediction:latest
