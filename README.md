@@ -1,4 +1,4 @@
-# Default of Credit Card Clients Dataset
+# Car Price Prediction
 It is an machine learning regression based model which is helpful in predicting the price of cars using different useful inputs.
 
 ### Workflow 
@@ -40,11 +40,11 @@ Average Price of each Category
 
 > df.groupBy("Category").agg(avg("Price").alias("Average Price")).orderBy("Average Price",ascending=False).show(20)
 
-![Average Price category](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/figure(3).png)
+![Average Price category](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/newplot(3).png)
 
 Car production in last 10 years
 
-![10 years car production](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/figure(4).png)
+![10 years car production](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/newplot(4).png)
 
 Cars manufactured by KIA in the production year 2010
 
@@ -56,7 +56,7 @@ Average Mileage of a every model manufactured by different companies
 
 Total sales in last 10 years
 
-![10 years car production](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/figure(7).png)
+![10 years car production](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/newplot(7).png)
 
 
 ** Note you can find data visualisation using plotly and EDA code in [EDA VISUALISATION](https://github.com/SaurabhNair239/Credit-card-default-predictor/blob/main/notebook/EDA.ipynb) file
@@ -68,6 +68,7 @@ Contineous deployment can be done using the [main.yaml](https://github.com/Saura
 Before doing one must create AWS Elastic Container registry and user with required privilages as mentioned below:
 
 > AmazonEC2FullAccess
+
 > AmazonEC2ContainerRegistryFullAccess
 
 After completing this process store the AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as a github action secret key
