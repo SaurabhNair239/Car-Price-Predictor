@@ -7,8 +7,7 @@ from src.pipline.predict_pipeline import CustomizeData,PredictionPipeline
 
 
 
-application = Flask(__name__)
-app = application
+app = Flask(__name__)
 @app.route("/",methods=["GET"])
 def home():
     return render_template("index.html")
@@ -40,4 +39,4 @@ def prediction():
          raise CustomException(e,sys) 
     
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',debug=True,port=8080)
