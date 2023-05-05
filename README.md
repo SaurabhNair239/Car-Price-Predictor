@@ -2,7 +2,7 @@
 It is an machine learning regression based model which is helpful in predicting the price of cars using different useful inputs.
 
 ### Workflow 
-![ML Workflow](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/workflow.jpg)
+![ML Workflow](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/car_price_workflow.jpg)
 
 Dataset: https://www.kaggle.com/datasets/deepcontractor/car-price-prediction-challenge
 
