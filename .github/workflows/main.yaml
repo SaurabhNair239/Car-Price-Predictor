@@ -28,12 +28,12 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build,tag Docker image
-       env:
+      env:
         ECR_REPOSITORY: carpriceprediction
-       run: |
+      run: |
           docker build -t car_price_prediction .
           docker tag car_price_prediction:latest public.ecr.aws/$ECR_REPOSITORY/car_price_prediction:latest
 
     - name: Push Docker image to ECR Public
-       run: |
+      run: |
           docker push public.ecr.aws/$ECR_REPOSITORY/car_price_prediction:latest
