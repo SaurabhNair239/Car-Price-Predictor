@@ -1,14 +1,23 @@
 # Car Price Prediction
 It is an machine learning regression based model which is helpful in predicting the price of cars using different useful inputs.
 
-* 1. [Workflow](#Workflow)
-* 2. [Data Analysis](#DataAnalysis)
-	* 2.1. [ Data Analysis using PySpark Commands](#DataAnalysisusingPySparkCommands)
-* 3. [Deployment using AWS ECR and EC2 instance.](#DeploymentusingAWSECRandEC2instance.)
-	* 3.1. [Below mentioned steps need to be followed for deployment](#Belowmentionedstepsneedtobefollowedfordeployment)
-* 4. [Next step:](#Nextstep:)
+<!-- vscode-markdown-toc -->
+* 1. [Workflow](#workflow)
+* 2. [Data Analysis](#data-analysis)
+    * 2.1. [ Data Analysis using PySpark Commands](#-data-analysis-using-pyspark-commands)
+* 3. [Deployment using AWS ECR and EC2 instance.](#deployment-using-aws-ecr-and-ec2-instance.)
+    * 3.1. [Below mentioned steps need to be followed for deployment](#below-mentioned-steps-need-to-be-followed-for-deployment)
+* 4. [Next step](#next-step)
 
-##  1. <a name='Workflow'></a>Workflow 
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
+
+
+##  1. <a name='workflow'></a>Workflow 
 ![ML Workflow](https://github.com/SaurabhNair239/Car-Price-predictor/blob/main/images/car_price_workflow.jpg)
 
 Dataset: https://www.kaggle.com/datasets/deepcontractor/car-price-prediction-challenge
@@ -17,9 +26,9 @@ Application link: http://18.193.67.220:8080/
 
 Pyspark Data Analysis: https://colab.research.google.com/drive/1iEGi036Bk1hfBJRe2HWy4txRz92mBmmp?usp=sharing
 
-##  2. <a name='DataAnalysis'></a>Data Analysis
+##  2. <a name='data-analysis'></a>Data Analysis
 
-###  2.1. <a name='DataAnalysisusingPySparkCommands'></a> Data Analysis using PySpark Commands 
+###  2.1. <a name='-data-analysis-using-pyspark-commands'></a> Data Analysis using PySpark Commands 
 
 Different Manufacturer order by alphabatic order
 
@@ -68,11 +77,11 @@ Total sales in last 10 years
 
 ** Note you can find data visualisation using plotly and EDA code in [EDA VISUALISATION](https://github.com/SaurabhNair239/Credit-card-default-predictor/blob/main/notebook/EDA.ipynb) file
 
-##  3. <a name='DeploymentusingAWSECRandEC2instance.'></a>Deployment using AWS ECR and EC2 instance.
+##  3. <a name='deployment-using-aws-ecr-and-ec2-instance.'></a>Deployment using AWS ECR and EC2 instance.
 
 Contineous deployment can be done using the [main.yaml](https://github.com/SaurabhNair239/Car-Price-Predictor/blob/main/.github/workflows/main.yaml) file 
 
-###  3.1. <a name='Belowmentionedstepsneedtobefollowedfordeployment'></a>Below mentioned steps need to be followed for deployment
+###  3.1. <a name='below-mentioned-steps-need-to-be-followed-for-deployment'></a>Below mentioned steps need to be followed for deployment
 
 * Create AWS Elastic Container registry .
 
@@ -92,7 +101,7 @@ Contineous deployment can be done using the [main.yaml](https://github.com/Saura
 
 ***Detailed explation of the deployment will be published soon.***
 
-##  4. <a name='Nextstep:'></a>Next step:
+##  4. <a name='next-step'></a>Next step
 
 * Improvement in the Frontend optimization.
 
